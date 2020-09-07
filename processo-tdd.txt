@@ -1,0 +1,6 @@
+Inicialmente, escrevemos o teste funcional. Enquanto este não passar, iteramos o processo
+de desenvolvimento. O processo de desenvolvimento consiste em escrever um teste de
+unidade, e enquanto este não passar, implementa-se a menor alteração possível para que o
+mesmo passe. Após a aprovação do teste funcional, refatoramos a aplicação e reiteramos o
+processo de desenvolvimento. Ao final, todos os testes serão aprovados, e a aplicação será
+funcional.
