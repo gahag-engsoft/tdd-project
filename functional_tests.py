@@ -26,20 +26,21 @@ class NewVisitorTest(unittest.TestCase):
 
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn('1: Estudar testes funcionais', [row.text for row in rows])
+        self.check_for_row_in_list_table('1: Estudar testes funcionais')
 
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Estudar testes de unidade')
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn('1: Estudar testes funcionais', [row.text for row in rows])
-        self.assertIn('2: Estudar testes de unidade', [row.text for row in rows])
+        self.check_for_row_in_list_table('1: Estudar testes funcionais')
+        self.check_for_row_in_list_table('2: Estudar testes de unidade')
+
+
+    def check_for_row_in_list_table(self, row_text):
+       table = self.browser.find_element_by_id('id_list_table')
+       rows = table.find_elements_by_tag_name('tr')
+       self.assertIn(row_text, [row.text for row in rows])
 
 
 if __name__ == '__main__':
